@@ -1,369 +1,41 @@
 # 🏦 CreditRisk360: End-to-End Banking Risk Intelligence & Client Risk Scoring
 
-> Transforming raw banking customer data into actionable lending intelligence through Exploratory Data Analysis, Feature Engineering, Machine Learning, and Interactive Power BI Dashboards.
+> Transforming retail banking data into actionable risk intelligence using Python, Machine Learning, and Power BI.
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![Power BI](https://img.shields.io/badge/Power%20BI-DAX-yellow?logo=powerbi)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
-![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?logo=numpy)
-![Status](https://img.shields.io/badge/Project-Completed-success)
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-Data%20Analytics-blue?style=for-the-badge&logo=python)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-orange?style=for-the-badge)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?style=for-the-badge&logo=powerbi)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-Modeling-orange?style=for-the-badge&logo=scikitlearn)
+
+</p>
 
 ---
 
 # 📖 Project Overview
 
-CreditRisk360 is an end-to-end Banking Risk Intelligence project that converts raw customer and banking transaction data into actionable business insights.
+Financial institutions need to identify high-risk customers while maintaining a healthy lending portfolio. This project builds an end-to-end analytics solution that combines data analysis, machine learning, and business intelligence to assess customer risk and support data-driven lending decisions.
 
-The project combines **Data Analytics**, **Machine Learning**, and **Business Intelligence** to help financial institutions evaluate lending risk, prioritize high-risk customers, and monitor portfolio performance through interactive dashboards.
-
-Instead of relying solely on historical risk categories, every customer receives a continuous **Risk Score (0–1)**, enabling relationship managers and credit officers to make more informed lending decisions.
-
-# 🏗 Project Architecture
-
-The repository is organized into two integrated analytics components:
-
-### 📓 Python Analytics Pipeline
-
-The Jupyter Notebook performs the complete analytical workflow, including:
-
-- Data Quality Assessment
-- Exploratory Data Analysis (EDA)
-- Feature Engineering
-- Credit Risk Modeling
-- Customer Risk Scoring
-- Export of scored customers for business reporting
+Using a retail banking dataset of **3,000 customers**, the project performs data cleaning, exploratory analysis, feature engineering, customer risk scoring, and interactive reporting through Power BI.
 
 ---
 
-### 📊 Power BI Decision Dashboard
+# 🎯 Business Objective
 
-The Power BI report transforms the scored banking data into interactive business dashboards for lending and portfolio monitoring.
+The goal of this project is to help banks:
 
-Dashboard Pages:
-
-- 🏠 Home
-- 💰 Loan Analysis
-- 🏦 Deposit Analysis
-- 📈 Summary Dashboard
-
-Together, these components form an end-to-end Banking Risk Intelligence solution that bridges predictive analytics with business decision-making.
-
-# 🎯 Business Problem
-
-Financial institutions face two equally costly problems:
-
-- Approving loans for customers who are likely to default.
-- Rejecting low-risk customers who would have become profitable long-term clients.
-
-Traditional reporting often relies on static risk categories that provide limited decision support.
-
-The objective of this project is to build an explainable analytics solution capable of:
-
-- Identifying high-risk customers
-- Generating continuous customer risk scores
-- Prioritizing customers requiring intervention
-- Supporting lending decisions using interactive dashboards
+- Identify customers with high lending risk
+- Generate continuous customer risk scores
+- Prioritize customers requiring immediate attention
+- Monitor loan and deposit portfolios through interactive dashboards
+- Support informed credit and relationship management decisions
 
 ---
 
-# 📂 Dataset
+# 📂 Repository Structure
 
-The project uses a retail banking dataset containing approximately **3,000 customers** across multiple banking domains.
-
-### Dataset includes
-
-- Customer Demographics
-- Occupation
-- Nationality
-- Age
-- Banking Relationships
-- Credit Card Information
-- Loan Information
-- Deposit Information
-- Savings Accounts
-- Checking Accounts
-- Foreign Currency Accounts
-- Business Lending
-- Internal Risk Weighting
-
-The BI model consists of five relational tables:
-
-- Banking Relationship
-- Client Banking
-- Gender
-- Investment Advisor
-- Period
-
-For Machine Learning, the data was transformed into a consolidated CSV dataset.
-
----
-
-# ⚙️ Project Workflow
-
-```
-Raw Banking Data
-        │
-        ▼
-Data Cleaning & Validation
-        │
-        ▼
-Exploratory Data Analysis
-        │
-        ▼
-Feature Engineering
-        │
-        ▼
-Machine Learning Pipeline
-        │
-        ▼
-Customer Risk Scores
-        │
-        ▼
-Power BI Dashboard
-        │
-        ▼
-Business Decision Support
-```
-
----
-
-# 🧹 Phase 1 — Data Quality Assessment
-
-Before modeling, a complete data quality audit was performed.
-
-### Completed Tasks
-
-✔ Dataset structure inspection
-
-✔ Data type validation
-
-✔ Missing value analysis
-
-✔ Duplicate detection
-
-✔ Cardinality analysis
-
-✔ Date parsing
-
-✔ Tenure calculation
-
-✔ Numeric data conversion
-
----
-
-# 📊 Exploratory Data Analysis
-
-The EDA pipeline included:
-
-- Distribution analysis
-- Histogram generation
-- Boxplot analysis
-- IQR-based outlier detection
-- Missing value assessment
-- Spearman Correlation Matrix
-- Categorical frequency analysis
-
-Key observations:
-
-- Banking deposits and checking/savings accounts show strong positive correlation.
-- Ratio-based financial indicators provide more predictive information than raw balances.
-- Missing values were concentrated primarily in customer tenure-related fields.
-
----
-
-# ⚡ Feature Engineering
-
-Rather than training the model using only raw financial balances, domain-specific financial indicators were created.
-
-| Feature | Business Purpose |
-|----------|-----------------|
-| CreditUtilization | Measures credit dependency relative to income |
-| LoanToIncome | Estimates customer debt burden |
-| DepositToLoan | Measures financial liquidity |
-| CardsPerIncome | Indicates borrowing behavior |
-| TotalAccounts | Represents relationship depth with the bank |
-| Income Band | Customer segmentation for reporting |
-| Tenure | Banking relationship duration |
-
-These engineered variables better represent customer financial behavior than raw monetary values.
-
----
-
-# 🤖 Machine Learning Pipeline
-
-## Target Variable
-
-High-risk customers were identified using the top quartile of the existing **Risk Weighting** attribute.
-
-```
-Risk Weighting
-        ↓
-Top 25%
-        ↓
-High Risk = 1
-Else = 0
-```
-
----
-
-## Pipeline Architecture
-
-```
-Missing Value Imputation
-        ↓
-Feature Scaling
-        ↓
-One-Hot Encoding
-        ↓
-Logistic Regression
-        ↓
-Risk Probability
-```
-
-### Model Components
-
-- SimpleImputer
-- StandardScaler
-- OneHotEncoder
-- ColumnTransformer
-- Pipeline
-- Logistic Regression
-
-The entire preprocessing workflow is automated using Scikit-Learn Pipelines, ensuring reproducibility and eliminating data leakage.
-
----
-
-# 📈 Model Performance
-
-| Metric | Score |
-|---------|-------|
-| ROC-AUC | **0.891** |
-| Accuracy | **81.6%** |
-| Precision | **0.684** |
-| Recall | **0.771** |
-
-Every customer receives:
-
-- Risk Score
-- Risk Band
-- Risk Decile
-
-allowing continuous risk ranking instead of simple binary classification.
-
----
-
-# 🚨 Operational Risk Prioritization
-
-Beyond customer classification, the project generates an operational priority list.
-
-Customers satisfying:
-
-- High Risk
-- Deposit-to-Loan Ratio < 0.5
-
-are automatically flagged as priority customers for relationship managers and collections teams.
-
-This transforms predictive analytics into actionable business intelligence.
-
----
-
-# 📊 Power BI Dashboard
-
-The interactive dashboard consists of four business-focused pages.
-
-## 🏠 Home
-
-Executive overview of the banking portfolio.
-
----
-
-## 💰 Loan Analysis
-
-- Total Loan
-- Bank Loan
-- Business Lending
-- Credit Card Balance
-
----
-
-## 🏦 Deposit Analysis
-
-- Bank Deposits
-- Savings Accounts
-- Checking Accounts
-- Foreign Currency Accounts
-
----
-
-## 📈 Summary Dashboard
-
-Executive KPIs and customer segmentation.
-
----
-
-# 📌 DAX Concepts Used
-
-- SUM()
-- SUMX()
-- DISTINCTCOUNT()
-- SWITCH()
-- DATEDIFF()
-
-Additional calculated fields include:
-
-- Engagement Days
-- Income Band
-- Processing Fees
-- Engagement Timeframe
-
----
-
-# 💡 Business Insights
-
-The project demonstrates that:
-
-- Financial ratio features outperform raw account balances in identifying customer risk.
-- Continuous probability scores provide better prioritization than traditional risk labels.
-- Customers with weak liquidity buffers and high borrowing exposure can be identified proactively.
-- Interactive dashboards allow business stakeholders to monitor lending risk without requiring technical expertise.
-
----
-
-# 🛠 Technology Stack
-
-### Programming
-
-- Python
-
-### Data Analysis
-
-- Pandas
-- NumPy
-
-### Visualization
-
-- Matplotlib
-
-### Machine Learning
-
-- Scikit-Learn
-
-### Business Intelligence
-
-- Microsoft Power BI
-- DAX
-
-### Development Environment
-
-- Jupyter Notebook
-- VS Code
-
----
-
-# 📁 Repository Structure
-
-```
+```text
 CreditRisk360/
 │
 ├── Banking.csv
@@ -374,13 +46,178 @@ CreditRisk360/
 
 ---
 
-# 🚀 Future Improvements
+# ⚙️ Project Workflow
 
-- Compare Logistic Regression with XGBoost and LightGBM.
-- Deploy the model as a REST API.
-- Automate Power BI refresh using scheduled pipelines.
-- Add SHAP explainability for individual customer predictions.
-- Monitor model drift using incoming customer data.
+```
+Raw Banking Data
+        │
+        ▼
+Data Cleaning
+        │
+        ▼
+Exploratory Data Analysis
+        │
+        ▼
+Feature Engineering
+        │
+        ▼
+Machine Learning Model
+        │
+        ▼
+Customer Risk Scoring
+        │
+        ▼
+Power BI Dashboard
+        │
+        ▼
+Business Insights
+```
+
+---
+
+# 📊 Dataset
+
+The dataset contains information for approximately **3,000 banking customers**, including:
+
+- Customer Demographics
+- Banking Relationships
+- Loans
+- Deposits
+- Savings & Checking Accounts
+- Credit Card Information
+- Business Lending
+- Internal Risk Weighting
+
+The Power BI solution uses multiple relational tables, while the machine learning workflow uses a consolidated dataset for modeling.
+
+---
+
+# 🔍 Exploratory Data Analysis
+
+The analysis focused on understanding data quality and customer financial behavior through:
+
+- Data quality assessment
+- Missing value analysis
+- Duplicate detection
+- Outlier identification (IQR)
+- Distribution analysis
+- Correlation analysis
+- Customer profile exploration
+
+---
+
+# ⚡ Feature Engineering
+
+To improve model performance, domain-specific financial features were created, including:
+
+| Feature | Description |
+|----------|-------------|
+| Credit Utilization | Credit balance relative to income |
+| Loan-to-Income Ratio | Customer debt burden |
+| Deposit-to-Loan Ratio | Financial liquidity indicator |
+| Cards per Income | Credit dependency |
+| Total Accounts | Overall banking relationship |
+| Customer Tenure | Relationship duration |
+| Income Band | Customer segmentation |
+
+---
+
+# 🤖 Machine Learning
+
+A Logistic Regression model was built using a Scikit-Learn Pipeline with automated preprocessing.
+
+### Model Pipeline
+
+- Missing Value Imputation
+- Feature Scaling
+- One-Hot Encoding
+- Logistic Regression
+- Customer Risk Scoring
+
+### Model Performance
+
+| Metric | Score |
+|---------|-------|
+| ROC-AUC | **0.891** |
+| Accuracy | **81.6%** |
+| Precision | **0.684** |
+| Recall | **0.771** |
+
+Each customer receives:
+
+- Risk Score
+- Risk Band (Low / Medium / High)
+- Risk Decile
+
+to support continuous risk assessment.
+
+---
+
+# 📈 Power BI Dashboard
+
+The Power BI report provides an interactive view of banking performance across four pages:
+
+- 🏠 Home
+- 💰 Loan Analysis
+- 🏦 Deposit Analysis
+- 📊 Executive Summary
+
+Key business KPIs include:
+
+- Total Clients
+- Total Loans
+- Total Deposits
+- Business Lending
+- Credit Card Balance
+- Processing Fees
+- Customer Engagement
+- Account Distribution
+
+---
+
+# 💡 Key Business Insights
+
+- Ratio-based financial features improve customer risk assessment compared to raw balances.
+- Customer risk scores enable better prioritization than traditional risk categories.
+- High-risk customers with weak liquidity buffers can be identified proactively.
+- Interactive dashboards allow business users to monitor portfolio performance without technical expertise.
+
+---
+
+# 🛠️ Technology Stack
+
+| Category | Tools |
+|----------|-------|
+| Programming | Python |
+| Data Analysis | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Machine Learning | Scikit-Learn |
+| Business Intelligence | Power BI, DAX |
+| Development | Jupyter Notebook |
+
+---
+
+# 🚀 Skills Demonstrated
+
+- Data Cleaning
+- Exploratory Data Analysis
+- Feature Engineering
+- Machine Learning
+- Risk Analytics
+- Predictive Modeling
+- Power BI Dashboard Development
+- DAX
+- Business Intelligence
+- Data Storytelling
+
+---
+
+# 🔮 Future Enhancements
+
+- Compare Logistic Regression with tree-based models such as XGBoost.
+- Automate dashboard refresh with scheduled data pipelines.
+- Incorporate model explainability using SHAP.
+- Deploy the model as an API for real-time risk scoring.
 
 ---
 
@@ -388,12 +225,12 @@ CreditRisk360/
 
 **Sindhu M**
 
-📧 sindhumanoharan1210@gmail.com
+📧 **Email:** sindhumanoharan1210@gmail.com
 
-💼 LinkedIn: https://www.linkedin.com/in/sindhumanoharan/
+💼 **LinkedIn:** https://www.linkedin.com/in/sindhumanoharan/
 
-🌐 Portfolio: https://sindhuportfolio-ab4p.vercel.app/
+🌐 **Portfolio:** https://sindhuportfolio-ab4p.vercel.app/
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star.
+⭐ If you found this project interesting, consider giving it a star.
