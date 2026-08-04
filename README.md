@@ -88,10 +88,10 @@ The project focuses on:
 ```text
 CreditRisk360/
 │
-├── Banking.csv                # Retail banking dataset
+├── README.md                  # Project documentation
 ├── CreditRisk360.ipynb        # End-to-end Python analytics & machine learning workflow
 ├── CreditRisk360.pbix         # Interactive Power BI dashboard
-└── README.md                  # Project documentation
+└── Banking.csv                # Retail banking dataset
 ```
 
 ---
